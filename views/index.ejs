@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CRUD Application</title>
+</head>
+<body>
+  <h1>Records</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% records.forEach(record => { %>
+        <tr>
+          <td><%= record.id %></td>
+          <td><%= record.name %></td>
+          <td><%= record.email %></td>
+          <td>
+            <a href="/edit/<%= record.id %>">Edit</a>
+            <form method="POST" action="/delete/<%= record.id %>" style="display: inline;">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <a href="/new">Add New Record</a>
+</body>
+</html>
